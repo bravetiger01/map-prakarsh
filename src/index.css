@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 262 40% 8%;
+    --foreground: 15 60% 92%;
+
+    --card: 262 35% 12%;
+    --card-foreground: 15 60% 92%;
+
+    --popover: 262 35% 12%;
+    --popover-foreground: 15 60% 92%;
+
+    --primary: 15 74% 79%;
+    --primary-foreground: 262 40% 10%;
+
+    --secondary: 262 35% 25%;
+    --secondary-foreground: 15 60% 92%;
+
+    --muted: 262 30% 16%;
+    --muted-foreground: 262 15% 55%;
+
+    --accent: 15 74% 70%;
+    --accent-foreground: 262 40% 10%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 262 25% 20%;
+    --input: 262 25% 20%;
+    --ring: 15 74% 79%;
+
+    --radius: 0.75rem;
+
+    --neon-glow: 15 74% 79%;
+    --neon-purple: 262 35% 40%;
+    --neon-pink: 15 74% 70%;
+    --surface-glass: 262 35% 14%;
+
+    --sidebar-background: 262 35% 10%;
+    --sidebar-foreground: 15 60% 92%;
+    --sidebar-primary: 15 74% 79%;
+    --sidebar-primary-foreground: 262 40% 10%;
+    --sidebar-accent: 262 30% 16%;
+    --sidebar-accent-foreground: 15 60% 92%;
+    --sidebar-border: 262 25% 20%;
+    --sidebar-ring: 15 74% 79%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 10px hsl(var(--neon-glow) / 0.3),
+                0 0 30px hsl(var(--neon-glow) / 0.15),
+                0 0 60px hsl(var(--neon-glow) / 0.05);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--neon-glow) / 0.5),
+                 0 0 30px hsl(var(--neon-glow) / 0.3);
+  }
+
+  .glass {
+    background: hsl(var(--surface-glass) / 0.8);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .pin-pulse {
+    animation: pin-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pin-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 0.8; }
+  }
+
+  @keyframes scanline {
+    0%   { top: 0%; }
+    100% { top: 100%; }
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
